@@ -1,6 +1,6 @@
 Name:		texlive-mflua
 Version:	62774
-Release:	1
+Release:	2
 Summary:	configuration and base files for MFLua
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/mflua
