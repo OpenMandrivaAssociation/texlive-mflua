@@ -3,7 +3,7 @@ Version:	62774
 Release:	2
 Summary:	configuration and base files for MFLua
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/mflua
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/mflua
 License:	
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mflua.r%{version}.tar.xz
 BuildArch:	noarch
