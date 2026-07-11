@@ -1,35 +1,23 @@
-Name:		texlive-mflua
-Version:	62774
-Release:	2
+%global tl_name mflua
+%global tl_revision 78968
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	configuration and base files for MFLua
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/mflua
-License:	
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mflua.r%{version}.tar.xz
+URL:		https://www.ctan.org/pkg/mflua
+License:	LPPL
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mflua.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mflua.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Requires:	texlive(luatex)
+Requires:	texlive(metafont)
+Requires:	texlive(mflua.bin)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
 For information on this Lua-enabled Metafont, see, for example:
 tug.org/TUGboat/tb32-2/tb101scarso.pdf.
 
-%prep
-%autosetup -p1 -c
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_datadir}
-cp -a texmf-dist %{buildroot}%{_datadir}
-
-%files
-%{_texmfdistdir}/texmf-dist/scripts/mflua
-%{_texmfdistdir}/texmf-dist/metafont/mflua
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
